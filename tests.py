@@ -1,5 +1,5 @@
 import unittest
-from singleton import MyClass
+from creational_patterns.singleton import MyClass
 
 
 class TestCreationalPatterns(unittest.TestCase):
