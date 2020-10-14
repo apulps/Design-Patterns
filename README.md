@@ -1,5 +1,7 @@
 # Design-Patterns
 
+[![Build Status](https://travis-ci.org/apulps/Design-Patterns.svg?branch=main)](https://travis-ci.org/apulps/Design-Patterns)
+[![codecov](https://codecov.io/gh/apulps/Design-Patterns/branch/main/graph/badge.svg?token=GNVMHFNXPU)](https://codecov.io/gh/apulps/Design-Patterns)
 
 ## Creational patterns
 
