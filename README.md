@@ -10,8 +10,12 @@ Ensures that a class has only one instance and provides a global point of access
 
 ![Singleton](uml/singleton.png "Singleton")
 
-<!--
 ### Prototype
+Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+
+![Prototype](uml/prototype.png "Prototype")
+
+<!--
 ### Factory Method
 ### Abstract Factory
 ### Builder
