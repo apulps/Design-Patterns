@@ -1,6 +1,6 @@
 import unittest
 from creational_patterns.singleton import MyClass as MyClassSingleton
-from creational_patterns.prototype import Client as ClientPrototype
+from creational_patterns.prototype import Client as ClientPrototype, Prototype
 
 class TestCreationalPatterns(unittest.TestCase):
     def test_singleton(self):
@@ -18,6 +18,8 @@ class TestCreationalPatterns(unittest.TestCase):
         self.assertEqual(even.y, y_value)
         self.assertEqual(odd.x, x_value)
         self.assertEqual(odd.y, 8)
+
+        self.assertEqual(None, Prototype(0, 0).clone()) # test abstract method
 
 
 
