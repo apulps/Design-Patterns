@@ -14,7 +14,7 @@ class Prototype:
         self.y = y
 
     def clone(self):
-        pass
+        raise NotImplementedError("Subclass must override clone()!")
 
 
 class ConcretePrototypeA(Prototype):
