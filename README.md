@@ -15,8 +15,12 @@ Specify the kinds of objects to create using a prototypical instance, and create
 
 ![Prototype](uml/prototype.png "Prototype")
 
-<!--
 ### Factory Method
+Define an interface to create an object, but let the subclasses decide the class to instantiate. The instantiation is delegated to the subclasses.
+
+![Factory Method](uml/factory_method.png "Factory Method")
+
+<!--
 ### Abstract Factory
 ### Builder
 ### Object Pool
