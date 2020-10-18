@@ -23,7 +23,7 @@ Define an interface to create an object, but let the subclasses decide the class
 ### Abstract Factory
 Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-![Abstract Factory](uml/factory_method.png "Abstract Factory")
+![Abstract Factory](uml/abstract_factory.png "Abstract Factory")
 
 <!--
 ### Builder
