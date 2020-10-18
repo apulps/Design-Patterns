@@ -20,7 +20,7 @@ class TestCreationalPatterns(unittest.TestCase):
     def test_singleton(self):
         A = MyClassSingleton()
         B = MyClassSingleton()
-        assert A is B
+        self.assertIs(A, B)
 
 
     def test_prototype(self):
