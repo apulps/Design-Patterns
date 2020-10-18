@@ -3,6 +3,17 @@ import unittest
 from creational_patterns.singleton import MyClass as MyClassSingleton
 from creational_patterns.prototype import Client as ClientPrototype, Prototype
 from creational_patterns.factory_method import Product, ConcreteProduct, Creator, ConcreteCreator
+from creational_patterns.abstract_factory import (
+    AbstractFactory, 
+    ConcreteFactory1, 
+    ConcreteFactory2, 
+    AbstractProductA, 
+    AbstractProductB, 
+    ConcreteProductA1,
+    ConcreteProductB1,
+    ConcreteProductA2,
+    ConcreteProductB2
+)
 
 
 class TestCreationalPatterns(unittest.TestCase):
@@ -37,6 +48,38 @@ class TestCreationalPatterns(unittest.TestCase):
 
         self.assertRaises(NotImplementedError, Creator().factory_method) # test abstract method
 
+    
+    def test_abstract_factory(self):
+        self.assertRaises(NotImplementedError, AbstractFactory().make_productA) # test abstract method
+        self.assertRaises(NotImplementedError, AbstractFactory().make_productB) # test abstract method
+        
+        self.assertRaises(NotImplementedError, AbstractProductA().do_something) # test abstract method
+        self.assertRaises(NotImplementedError, AbstractProductA().do_something_else) # test abstract method
+
+        self.assertRaises(NotImplementedError, AbstractProductB().do_something) # test abstract method
+        self.assertRaises(NotImplementedError, AbstractProductB().do_something_else) # test abstract method
+
+        concrete_factory1 = ConcreteFactory1()
+        concrete_productA1 = concrete_factory1.make_productA()
+        concrete_productB1 = concrete_factory1.make_productB()
+
+        self.assertIsInstance(concrete_productA1, ConcreteProductA1)
+        self.assertIsInstance(concrete_productB1, ConcreteProductB1)
+        self.assertEqual(concrete_productA1.do_something(), 1)
+        self.assertEqual(concrete_productA1.do_something_else(), 2)
+        self.assertEqual(concrete_productB1.do_something(), 5)
+        self.assertEqual(concrete_productB1.do_something_else(), 6)
+
+        concrete_factory2 = ConcreteFactory2()
+        concrete_productA2 = concrete_factory2.make_productA()
+        concrete_productB2 = concrete_factory2.make_productB()
+
+        self.assertIsInstance(concrete_productA2, ConcreteProductA2)
+        self.assertIsInstance(concrete_productB2, ConcreteProductB2)
+        self.assertEqual(concrete_productA2.do_something(), 3)
+        self.assertEqual(concrete_productA2.do_something_else(), 4)
+        self.assertEqual(concrete_productB2.do_something(), 7)
+        self.assertEqual(concrete_productB2.do_something_else(), 8)
 
 
 

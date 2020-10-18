@@ -20,8 +20,12 @@ Define an interface to create an object, but let the subclasses decide the class
 
 ![Factory Method](uml/factory_method.png "Factory Method")
 
-<!--
 ### Abstract Factory
+Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+![Abstract Factory](uml/factory_method.png "Abstract Factory")
+
+<!--
 ### Builder
 ### Object Pool
 
