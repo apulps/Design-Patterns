@@ -25,8 +25,12 @@ Provide an interface for creating families of related or dependent objects witho
 
 ![Abstract Factory](uml/abstract_factory.png "Abstract Factory")
 
-<!--
 ### Builder
+Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+
+![Builder](uml/builder.png "Builder")
+
+<!--
 ### Object Pool
 
 

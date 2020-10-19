@@ -14,6 +14,7 @@ from creational_patterns.abstract_factory import (
     ConcreteProductA2,
     ConcreteProductB2
 )
+from creational_patterns.builder import Director, Builder, ConcreteBuilder, Product as ProductB
 
 
 class TestCreationalPatterns(unittest.TestCase):
@@ -80,6 +81,19 @@ class TestCreationalPatterns(unittest.TestCase):
         self.assertEqual(concrete_productA2.do_something_else(), 4)
         self.assertEqual(concrete_productB2.do_something(), 7)
         self.assertEqual(concrete_productB2.do_something_else(), 8)
+    
+
+    def test_builder(self):
+        self.assertRaises(NotImplementedError, Builder().build_part_a) # test abstract method
+        self.assertRaises(NotImplementedError, Builder().build_part_b) # test abstract method
+
+        concrete_builder = ConcreteBuilder()
+        director = Director()
+        director.build(concrete_builder)
+        product = concrete_builder.get_product()
+        
+        self.assertEqual(product.feature_1, 1)
+        self.assertEqual(product.feature_2, 2)
 
 
 
