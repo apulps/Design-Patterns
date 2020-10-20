@@ -42,8 +42,12 @@ Convert the interface of a class into another interface clients expect. Adapter 
 
 ![Adapter](uml/adapter.png "Adapter")
 
-<!--
 ### Facade
+Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+
+![Facade](uml/facade.png "Facade")
+
+<!--
 ### Decorator
 ### Composite
 ### Bridge

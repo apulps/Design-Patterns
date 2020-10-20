@@ -17,6 +17,7 @@ from creational_patterns.abstract_factory import (
 from creational_patterns.builder import Director, Builder, ConcreteBuilder, Product as ProductB
 
 from structural_patterns.adapter import Target, Adapter, Adaptee
+from structural_patterns.facade import Facade, Class1, Class2, Class3
 
 
 
@@ -107,6 +108,19 @@ class TestStructuralPatterns(unittest.TestCase):
         adapter = Adapter()
         
         self.assertEqual(adapter.request(), 1)
+    
+
+    def test_facade(self):
+        self.assertRaises(NotImplementedError, Class1().method_1) # test abstract method
+
+        self.assertEqual(Class1().method_2(), 2)
+        self.assertEqual(Class2().method_1(), 1)
+        self.assertEqual(Class2().method_2(), 2)
+        self.assertEqual(Class3().method_3(), 3)
+
+        facade = Facade()
+        
+        self.assertEqual(facade.operation(), 6)
 
 
 
