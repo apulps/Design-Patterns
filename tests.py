@@ -16,6 +16,9 @@ from creational_patterns.abstract_factory import (
 )
 from creational_patterns.builder import Director, Builder, ConcreteBuilder, Product as ProductB
 
+from structural_patterns.adapter import Target, Adapter, Adaptee
+
+
 
 class TestCreationalPatterns(unittest.TestCase):
     def test_singleton(self):
@@ -94,6 +97,16 @@ class TestCreationalPatterns(unittest.TestCase):
         
         self.assertEqual(product.feature_1, 1)
         self.assertEqual(product.feature_2, 2)
+
+
+
+class TestStructuralPatterns(unittest.TestCase):
+    def test_adapter(self):
+        self.assertRaises(NotImplementedError, Target().request) # test abstract method
+
+        adapter = Adapter()
+        
+        self.assertEqual(adapter.request(), 1)
 
 
 
