@@ -47,8 +47,12 @@ Provide a unified interface to a set of interfaces in a subsystem. Facade define
 
 ![Facade](uml/facade.png "Facade")
 
-<!--
 ### Decorator
+Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+![Decorator](uml/decorator.png "Decorator")
+
+<!--
 ### Composite
 ### Bridge
 ### Proxy

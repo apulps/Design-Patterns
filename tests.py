@@ -18,6 +18,7 @@ from creational_patterns.builder import Director, Builder, ConcreteBuilder, Prod
 
 from structural_patterns.adapter import Target, Adapter, Adaptee
 from structural_patterns.facade import Facade, Class1, Class2, Class3
+from structural_patterns.decorator import Component, ConcreteComponent, Decorator, ConcreteDecoratorA, ConcreteDecoratorB
 
 
 
@@ -121,6 +122,25 @@ class TestStructuralPatterns(unittest.TestCase):
         facade = Facade()
         
         self.assertEqual(facade.operation(), 6)
+
+    
+    def test_decorator(self):
+        self.assertRaises(NotImplementedError, Component().operation) # test abstract method
+
+        concrete_component = ConcreteComponent()
+
+        self.assertEqual(concrete_component.operation(), 1)
+
+        decorator = Decorator()
+
+        self.assertEqual(decorator.operation(), 1)
+
+        concrete_decoratorA = ConcreteDecoratorA()
+        concrete_decoratorB = ConcreteDecoratorB()
+
+        self.assertEqual(concrete_decoratorA.operation(), 2)
+        self.assertEqual(concrete_decoratorB.operation(), 4)
+        self.assertEqual(concrete_decoratorB.other_operation(), 3)
 
 
 
