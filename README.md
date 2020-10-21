@@ -52,8 +52,12 @@ Attach additional responsibilities to an object dynamically. Decorators provide 
 
 ![Decorator](uml/decorator.png "Decorator")
 
-<!--
 ### Composite
+Compose objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+
+![Composite](uml/composite.png "Composite")
+
+<!--
 ### Bridge
 ### Proxy
 ### Flyweight

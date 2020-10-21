@@ -19,6 +19,7 @@ from creational_patterns.builder import Director, Builder, ConcreteBuilder, Prod
 from structural_patterns.adapter import Target, Adapter, Adaptee
 from structural_patterns.facade import Facade, Class1, Class2, Class3
 from structural_patterns.decorator import Component, ConcreteComponent, Decorator, ConcreteDecoratorA, ConcreteDecoratorB
+from structural_patterns.composite import Component as ComponentB, Leaf, Composite
 
 
 
@@ -141,6 +142,33 @@ class TestStructuralPatterns(unittest.TestCase):
         self.assertEqual(concrete_decoratorA.operation(), 2)
         self.assertEqual(concrete_decoratorB.operation(), 4)
         self.assertEqual(concrete_decoratorB.other_operation(), 3)
+    
+
+    def test_composite(self):
+        self.assertRaises(NotImplementedError, ComponentB().operation) # test abstract method
+        
+        leaf_1 = Leaf()
+
+        self.assertEqual(leaf_1.operation(), 1)
+
+        leaf_2 = Leaf()
+        leaf_3 = Leaf()
+        leaf_4 = Leaf()
+        composite = Composite()
+
+        composite.add_element(leaf_1)
+        composite.add_element(leaf_2)
+        composite.add_element(leaf_3)
+        composite.add_element(leaf_4)
+
+        self.assertEqual(len(composite._elements), 4)
+
+        composite.remove_element(leaf_2)
+        composite.remove_element(leaf_4)
+        
+        self.assertEqual(len(composite._elements), 2)
+
+        self.assertEqual(composite.operation(), 2)
 
 
 
