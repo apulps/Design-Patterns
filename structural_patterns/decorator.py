@@ -14,8 +14,8 @@ class ConcreteComponent(Component):
 
     
 class Decorator(Component):
-    def __init__(self):
-        self._component = ConcreteComponent()
+    def __init__(self, component):
+        self._component = component
 
     def operation(self):
         return self._component.operation()

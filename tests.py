@@ -133,12 +133,12 @@ class TestStructuralPatterns(unittest.TestCase):
 
         self.assertEqual(concrete_component.operation(), 1)
 
-        decorator = Decorator()
+        decorator = Decorator(concrete_component)
 
         self.assertEqual(decorator.operation(), 1)
 
-        concrete_decoratorA = ConcreteDecoratorA()
-        concrete_decoratorB = ConcreteDecoratorB()
+        concrete_decoratorA = ConcreteDecoratorA(concrete_component)
+        concrete_decoratorB = ConcreteDecoratorB(concrete_component)
 
         self.assertEqual(concrete_decoratorA.operation(), 2)
         self.assertEqual(concrete_decoratorB.operation(), 4)
