@@ -20,6 +20,7 @@ from structural_patterns.adapter import Target, Adapter, Adaptee
 from structural_patterns.facade import Facade, Class1, Class2, Class3
 from structural_patterns.decorator import Component, ConcreteComponent, Decorator, ConcreteDecoratorA, ConcreteDecoratorB
 from structural_patterns.composite import Component as ComponentB, Leaf, Composite
+from structural_patterns.bridge import Abstraction, ExtendedAbstraction, Implementation, ConcreteImplementationA, ConcreteImplementationB
 
 
 
@@ -169,6 +170,28 @@ class TestStructuralPatterns(unittest.TestCase):
         self.assertEqual(len(composite._elements), 2)
 
         self.assertEqual(composite.operation(), 2)
+
+    
+    def test_bridge(self):
+        self.assertRaises(NotImplementedError, Implementation().implemented_operation) # test abstract method
+
+        concrete_implementationA = ConcreteImplementationA()
+        concrete_implementationB = ConcreteImplementationB()
+
+        self.assertEqual(concrete_implementationA.implemented_operation(), 2)
+        self.assertEqual(concrete_implementationB.implemented_operation(), 3)
+
+        abstractionA = Abstraction(concrete_implementationA)
+        abstractionB = Abstraction(concrete_implementationB)
+
+        self.assertEqual(abstractionA.operation(), f'Result from Abstraction: 2')
+        self.assertEqual(abstractionB.operation(), f'Result from Abstraction: 3')
+
+        extended_abstractionA = ExtendedAbstraction(concrete_implementationA)
+        extended_abstractionB = ExtendedAbstraction(concrete_implementationB)
+
+        self.assertEqual(extended_abstractionA.operation(), f'Result from ExtendedAbstraction: 2')
+        self.assertEqual(extended_abstractionB.operation(), f'Result from ExtendedAbstraction: 3')
 
 
 

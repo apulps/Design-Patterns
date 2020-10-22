@@ -57,8 +57,12 @@ Compose objects into tree structures to represent whole-part hierarchies. Compos
 
 ![Composite](uml/composite.png "Composite")
 
-<!--
 ### Bridge
+Decouple an abstraction from its implementation so that the two can vary independently.
+
+![Bridge](uml/bridge.png "Bridge")
+
+<!--
 ### Proxy
 ### Flyweight
 ### Private Class Data
