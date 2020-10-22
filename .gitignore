@@ -40,3 +40,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+
+# venv and vscode configs
+/.vscode/
+/dp_env/
