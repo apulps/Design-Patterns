@@ -21,6 +21,7 @@ from structural_patterns.facade import Facade, Class1, Class2, Class3
 from structural_patterns.decorator import Component, ConcreteComponent, Decorator, ConcreteDecoratorA, ConcreteDecoratorB
 from structural_patterns.composite import Component as ComponentB, Leaf, Composite
 from structural_patterns.bridge import Abstraction, ExtendedAbstraction, Implementation, ConcreteImplementationA, ConcreteImplementationB
+from structural_patterns.proxy import *
 
 
 
@@ -192,6 +193,18 @@ class TestStructuralPatterns(unittest.TestCase):
 
         self.assertEqual(extended_abstractionA.operation(), f'Result from ExtendedAbstraction: 2')
         self.assertEqual(extended_abstractionB.operation(), f'Result from ExtendedAbstraction: 3')
+
+    
+    def test_proxy(self):
+        self.assertRaises(NotImplementedError, Subject().operation) # test abstract method
+
+        real_subject = RealSubject()
+
+        self.assertEqual(real_subject.operation(), 1)
+
+        proxy = Proxy(real_subject)
+
+        self.assertEqual(proxy.operation(), 1)
 
 
 

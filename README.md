@@ -62,8 +62,12 @@ Decouple an abstraction from its implementation so that the two can vary indepen
 
 ![Bridge](uml/bridge.png "Bridge")
 
-<!--
 ### Proxy
+Provide a surrogate or placeholder for another object to control access to it.
+
+![Proxy](uml/proxy.png "Proxy")
+
+<!--
 ### Flyweight
 ### Private Class Data
 
