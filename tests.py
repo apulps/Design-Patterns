@@ -21,7 +21,9 @@ from structural_patterns.facade import Facade, Class1, Class2, Class3
 from structural_patterns.decorator import Component, ConcreteComponent, Decorator, ConcreteDecoratorA, ConcreteDecoratorB
 from structural_patterns.composite import Component as ComponentB, Leaf, Composite
 from structural_patterns.bridge import Abstraction, ExtendedAbstraction, Implementation, ConcreteImplementationA, ConcreteImplementationB
-from structural_patterns.proxy import *
+from structural_patterns.proxy import Subject, RealSubject, Proxy
+
+from behavioral_patterns.iterator import Aggregate, ConcreteAggregate, Iterator, ConcreteIterator
 
 
 
@@ -205,6 +207,19 @@ class TestStructuralPatterns(unittest.TestCase):
         proxy = Proxy(real_subject)
 
         self.assertEqual(proxy.operation(), 1)
+
+
+
+class TestBehavioralPatterns(unittest.TestCase):
+    def test_iterator(self):
+        self.assertRaises(NotImplementedError, Aggregate().__iter__) # test abstract method
+
+        self.assertRaises(NotImplementedError, Iterator().__next__) # test abstract method
+
+        concrete_aggregate = ConcreteAggregate()
+        concrete_iterator = iter(concrete_aggregate)
+
+        self.assertRaises(StopIteration, concrete_iterator.__next__)
 
 
 

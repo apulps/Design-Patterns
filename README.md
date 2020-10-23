@@ -70,11 +70,17 @@ Provide a surrogate or placeholder for another object to control access to it.
 <!--
 ### Flyweight
 ### Private Class Data
+-->
 
 
 ## Behavioral patterns
 
 ### Iterator
+Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+
+![Iterator](uml/iterator.png "Iterator")
+
+<!--
 ### Command
 ### Observer
 ### Mediator
