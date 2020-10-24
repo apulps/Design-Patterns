@@ -25,6 +25,7 @@ from structural_patterns.proxy import Subject, RealSubject, Proxy
 
 from behavioral_patterns.iterator import Aggregate, ConcreteAggregate, Iterator, ConcreteIterator
 from behavioral_patterns.command import Invoker, Command, Command1, Reciever
+from behavioral_patterns.observer import Subject as SubjectB, ConcreteSubject, Observer, ConcreteObserver
 
 
 
@@ -232,6 +233,24 @@ class TestBehavioralPatterns(unittest.TestCase):
         invoker.store_command(command1)
         
         self.assertEqual(invoker.execute_commands(), 1)
+
+    
+    def test_observer(self):
+        self.assertRaises(NotImplementedError, Observer().update) # test abstract method
+        
+        concrete_subject = ConcreteSubject()
+        concrete_observer = ConcreteObserver(concrete_subject)
+        concrete_subject.atach(concrete_observer)
+
+        self.assertEqual(concrete_subject.get_state(), None)
+        self.assertEqual(concrete_observer._observer_state, 10)
+
+        concrete_subject.set_state(5)
+
+        self.assertEqual(concrete_subject.get_state(), 5)
+        self.assertEqual(concrete_observer._observer_state, 5)
+
+        concrete_subject.detach(concrete_observer)
 
 
 
