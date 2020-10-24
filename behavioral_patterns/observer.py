@@ -4,11 +4,11 @@ Define a one-to-many dependency between objects so that when one object changes 
 
 
 class Subject:
-    def __init__(self): #XXX
+    def __init__(self):
         self._observers = []
         self._subject_state = None
 
-    def atach(self, observer): #XXX
+    def atach(self, observer):
         self._observers.append(observer)
     
     def detach(self, observer):
@@ -28,17 +28,17 @@ class ConcreteSubject(Subject):
         return self._subject_state
 
 
-class Observer: #XXX
-    def __init__(self): #XXX
+class Observer:
+    def __init__(self):
         self._subject = None
         self._observer_state = None
 
-    def update(self): #XXX
+    def update(self):
         raise NotImplementedError("Subclass must override update()!")
 
 
 class ConcreteObserver(Observer):
-    def __init__(self, subject): #XXX
+    def __init__(self, subject):
         self._subject = subject
         self._observer_state = 10
 
