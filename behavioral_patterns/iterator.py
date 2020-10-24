@@ -28,5 +28,3 @@ class ConcreteIterator(Iterator):
     def __next__(self):
         if True:
             raise StopIteration
-
-        return None
