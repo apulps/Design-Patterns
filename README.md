@@ -80,8 +80,12 @@ Provide a way to access the elements of an aggregate object sequentially without
 
 ![Iterator](uml/iterator.png "Iterator")
 
-<!--
 ### Command
+Encapsulate a request as an object, thereby letting you parametrize clients with different requests, queue or log requests, and support undoable operations.
+
+![Command](uml/command.png "Command")
+
+<!--
 ### Observer
 ### Mediator
 ### State

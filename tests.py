@@ -24,6 +24,7 @@ from structural_patterns.bridge import Abstraction, ExtendedAbstraction, Impleme
 from structural_patterns.proxy import Subject, RealSubject, Proxy
 
 from behavioral_patterns.iterator import Aggregate, ConcreteAggregate, Iterator, ConcreteIterator
+from behavioral_patterns.command import Invoker, Command, Command1, Reciever
 
 
 
@@ -220,6 +221,17 @@ class TestBehavioralPatterns(unittest.TestCase):
         concrete_iterator = iter(concrete_aggregate)
 
         self.assertRaises(StopIteration, concrete_iterator.__next__)
+    
+
+    def test_command(self):
+        self.assertRaises(NotImplementedError, Command().execute) # test abstract method
+        
+        reciever = Reciever()
+        command1 = Command1(reciever)
+        invoker = Invoker()
+        invoker.store_command(command1)
+        
+        self.assertEqual(invoker.execute_commands(), 1)
 
 
 
