@@ -26,6 +26,7 @@ from structural_patterns.proxy import Subject, RealSubject, Proxy
 from behavioral_patterns.iterator import Aggregate, ConcreteAggregate, Iterator, ConcreteIterator
 from behavioral_patterns.command import Invoker, Command, Command1, Reciever
 from behavioral_patterns.observer import Subject as SubjectB, ConcreteSubject, Observer, ConcreteObserver
+from behavioral_patterns.mediator import Mediator, ConcreteMediator, Colleage, ConcreteColleageA, ConcreteColleageB
 
 
 
@@ -251,6 +252,21 @@ class TestBehavioralPatterns(unittest.TestCase):
         self.assertEqual(concrete_observer._observer_state, 5)
 
         concrete_subject.detach(concrete_observer)
+    
+
+    def test_mediator(self):
+        self.assertRaises(NotImplementedError, Mediator().notify, None, None) # test abstract method
+
+        colleageA = ConcreteColleageA()
+        colleageB = ConcreteColleageB()
+
+        self.assertEqual(colleageA.get_mediator(), None)
+        self.assertEqual(colleageB.get_mediator(), None)
+
+        ConcreteMediator(colleageA, colleageB)
+
+        colleageA.do_something()
+        colleageB.do_something_else()
 
 
 

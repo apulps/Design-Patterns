@@ -90,8 +90,12 @@ Define a one-to-many dependency between objects so that when one object changes 
 
 ![Observer](uml/observer.png "Observer")
 
-<!--
 ### Mediator
+Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+
+![Mediator](uml/mediator.png "Mediator")
+
+<!--
 ### State
 ### Strategy
 ### Template method
