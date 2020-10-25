@@ -27,6 +27,7 @@ from behavioral_patterns.iterator import Aggregate, ConcreteAggregate, Iterator,
 from behavioral_patterns.command import Invoker, Command, Command1, Reciever
 from behavioral_patterns.observer import Subject as SubjectB, ConcreteSubject, Observer, ConcreteObserver
 from behavioral_patterns.mediator import Mediator, ConcreteMediator, Colleage, ConcreteColleageA, ConcreteColleageB
+from behavioral_patterns.state import Context, State, ConcreteStateA, ConcreteStateB
 
 
 
@@ -267,6 +268,22 @@ class TestBehavioralPatterns(unittest.TestCase):
 
         colleageA.do_something()
         colleageB.do_something_else()
+
+    
+    def test_state(self):
+        self.assertRaises(NotImplementedError, State().handle) # test abstract method
+
+        context = Context(ConcreteStateA())
+
+        self.assertIsInstance(context.get_state(), ConcreteStateA)
+
+        context.request()
+
+        self.assertIsInstance(context.get_state(), ConcreteStateB)
+
+        context.request()
+
+        self.assertIsInstance(context.get_state(), ConcreteStateA)
 
 
 

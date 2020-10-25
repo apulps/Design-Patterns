@@ -95,8 +95,12 @@ Define an object that encapsulates how a set of objects interact. Mediator promo
 
 ![Mediator](uml/mediator.png "Mediator")
 
-<!--
 ### State
+Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+
+![State](uml/state.png "State")
+
+<!--
 ### Strategy
 ### Template method
 ### Chain of responsibility
