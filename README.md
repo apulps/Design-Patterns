@@ -100,8 +100,12 @@ Allow an object to alter its behavior when its internal state changes. The objec
 
 ![State](uml/state.png "State")
 
-<!--
 ### Strategy
+Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from the clients that use it.
+
+![Strategy](uml/strategy.png "Strategy")
+
+<!--
 ### Template method
 ### Chain of responsibility
 ### Memento
