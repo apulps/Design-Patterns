@@ -29,6 +29,7 @@ from behavioral_patterns.observer import Subject as SubjectB, ConcreteSubject, O
 from behavioral_patterns.mediator import Mediator, ConcreteMediator, Colleage, ConcreteColleageA, ConcreteColleageB
 from behavioral_patterns.state import Context, State, ConcreteStateA, ConcreteStateB
 from behavioral_patterns.strategy import Context as ContextB, Strategy, ConcreteStrategyA, ConcreteStrategyB
+from behavioral_patterns.template_method import AbstractClass, ConcreteClass1, ConcreteClass2
 
 
 
@@ -302,6 +303,21 @@ class TestBehavioralPatterns(unittest.TestCase):
         context = ContextB(concrete_strategyB)
 
         self.assertEqual(context.context_interface(data), [6,5,3,2,1])
+    
+
+    def test_template_method(self):
+        self.assertRaises(NotImplementedError, AbstractClass().required_operation1) # test abstract method
+        self.assertRaises(NotImplementedError, AbstractClass().required_operation2) # test abstract method
+
+        concrete_class1 = ConcreteClass1()
+
+        self.assertEqual(concrete_class1.template_method(), 3)
+        
+        concrete_class2 = ConcreteClass2()
+
+        self.assertEqual(concrete_class2.template_method(), 17)
+
+        concrete_class2.hook2()
 
 
 
